@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="b05ce86f2bf640b9b2b24513f57c2795" Name="Diagram1" ZoomLevel="95">
+        <EntityTypeShape EntityType="GOFFICE_DATAModel.afactcomp" Width="1.5" PointX="5.25" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="GOFFICE_DATAModel.afactivo" Width="1.5" PointX="3" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="GOFFICE_DATAModel.afbceact" Width="1.5" PointX="5.25" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="GOFFICE_DATAModel.afgrupos" Width="1.5" PointX="0.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GOFFICE_DATAModel.aftipoact" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GOFFICE_DATAModel.afubic" Width="1.5" PointX="0.75" PointY="10" IsExpanded="true" />
+        <EntityTypeShape EntityType="GOFFICE_DATAModel.cousuario" Width="1.5" PointX="7.75" PointY="1.5" IsExpanded="true" />
+        <AssociationConnector Association="GOFFICE_DATAModel.FK_afactcomp_afactivos" ManuallyRouted="false" />
+        <AssociationConnector Association="GOFFICE_DATAModel.FK_afactivos_afgrupos" ManuallyRouted="false" />
+        <AssociationConnector Association="GOFFICE_DATAModel.FK_afactivos_aftipoact" ManuallyRouted="false" />
+        <AssociationConnector Association="GOFFICE_DATAModel.FK_afactivos_afubic" ManuallyRouted="false" />
+        <AssociationConnector Association="GOFFICE_DATAModel.FK_afbceact_afactivos" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

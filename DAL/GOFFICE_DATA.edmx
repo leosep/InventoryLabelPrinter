@@ -1,0 +1,687 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="GOFFICE_DATAModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="GOFFICE_DATAModelStoreContainer">
+    <EntitySet Name="afactcomps" EntityType="GOFFICE_DATAModel.Store.afactcomps" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="afactivos" EntityType="GOFFICE_DATAModel.Store.afactivos" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="afbceacts" EntityType="GOFFICE_DATAModel.Store.afbceacts" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="afgrupos" EntityType="GOFFICE_DATAModel.Store.afgrupos" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="aftipoacts" EntityType="GOFFICE_DATAModel.Store.aftipoacts" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="afubics" EntityType="GOFFICE_DATAModel.Store.afubics" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="cousuarios" EntityType="GOFFICE_DATAModel.Store.cousuarios" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK_afactcomp_afactivos" Association="GOFFICE_DATAModel.Store.FK_afactcomp_afactivos">
+      <End Role="afactivos" EntitySet="afactivos" />
+      <End Role="afactcomp" EntitySet="afactcomps" />
+    </AssociationSet>
+    <AssociationSet Name="FK_afactivos_afgrupos" Association="GOFFICE_DATAModel.Store.FK_afactivos_afgrupos">
+      <End Role="afgrupos" EntitySet="afgrupos" />
+      <End Role="afactivos" EntitySet="afactivos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_afactivos_aftipoact" Association="GOFFICE_DATAModel.Store.FK_afactivos_aftipoact">
+      <End Role="aftipoact" EntitySet="aftipoacts" />
+      <End Role="afactivos" EntitySet="afactivos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_afactivos_afubic" Association="GOFFICE_DATAModel.Store.FK_afactivos_afubic">
+      <End Role="afubic" EntitySet="afubics" />
+      <End Role="afactivos" EntitySet="afactivos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_afbceact_afactivos" Association="GOFFICE_DATAModel.Store.FK_afbceact_afactivos">
+      <End Role="afactivos" EntitySet="afactivos" />
+      <End Role="afbceact" EntitySet="afbceacts" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="afactcomps">
+    <Key>
+      <PropertyRef Name="cia" />
+      <PropertyRef Name="activo" />
+      <PropertyRef Name="secuencia" />
+    </Key>
+    <Property Name="cia" Type="int" Nullable="false" />
+    <Property Name="activo" Type="int" Nullable="false" />
+    <Property Name="secuencia" Type="int" Nullable="false" />
+    <Property Name="descrip" Type="varchar" Nullable="false" MaxLength="60" />
+    <Property Name="serie" Type="varchar" Nullable="false" MaxLength="30" />
+    <Property Name="usuario" Type="varchar" Nullable="false" MaxLength="15" />
+    <Property Name="fecha_creacion" Type="datetime" Nullable="false" />
+    <Property Name="hora_creacion" Type="datetime" Nullable="false" />
+    <Property Name="fecha_modificacion" Type="datetime" Nullable="true" />
+  </EntityType>
+  <EntityType Name="afactivos">
+    <Key>
+      <PropertyRef Name="cia" />
+      <PropertyRef Name="activo" />
+    </Key>
+    <Property Name="cia" Type="int" Nullable="false" />
+    <Property Name="activo" Type="int" Nullable="false" />
+    <Property Name="cod_alterno" Type="varchar" Nullable="false" MaxLength="20" />
+    <Property Name="descrip" Type="varchar" Nullable="false" MaxLength="60" />
+    <Property Name="tipo_activo" Type="int" Nullable="false" />
+    <Property Name="tipo_activo2" Type="varchar" Nullable="false" MaxLength="1" />
+    <Property Name="grupo_activo" Type="int" Nullable="false" />
+    <Property Name="ubic_activo" Type="int" Nullable="false" />
+    <Property Name="marca" Type="varchar" Nullable="false" MaxLength="20" />
+    <Property Name="modelo" Type="varchar" Nullable="false" MaxLength="20" />
+    <Property Name="serie" Type="varchar" Nullable="false" MaxLength="20" />
+    <Property Name="cantidad" Type="int" Nullable="false" />
+    <Property Name="proveedor" Type="int" Nullable="false" />
+    <Property Name="doc_pago" Type="varchar" Nullable="false" MaxLength="20" />
+    <Property Name="fecha_adq" Type="datetime" Nullable="false" />
+    <Property Name="valor_adq" Type="decimal" Nullable="false" Precision="15" Scale="2" />
+    <Property Name="adicion_rebaja" Type="decimal" Nullable="false" Precision="15" Scale="2" />
+    <Property Name="observaciones" Type="varchar" Nullable="false" MaxLength="255" />
+    <Property Name="texto1" Type="varchar" Nullable="true" MaxLength="50" />
+    <Property Name="texto2" Type="varchar" Nullable="true" MaxLength="50" />
+    <Property Name="texto3" Type="varchar" Nullable="true" MaxLength="50" />
+    <Property Name="texto4" Type="varchar" Nullable="true" MaxLength="50" />
+    <Property Name="texto5" Type="varchar" Nullable="true" MaxLength="50" />
+    <Property Name="cantidad1" Type="int" Nullable="true" />
+    <Property Name="cantidad2" Type="int" Nullable="true" />
+    <Property Name="cantidad3" Type="int" Nullable="true" />
+    <Property Name="cantidad4" Type="int" Nullable="true" />
+    <Property Name="cantidad5" Type="int" Nullable="true" />
+    <Property Name="valor1" Type="decimal" Nullable="true" Precision="15" Scale="2" />
+    <Property Name="valor2" Type="decimal" Nullable="true" Precision="15" Scale="2" />
+    <Property Name="valor3" Type="decimal" Nullable="true" Precision="15" Scale="2" />
+    <Property Name="valor4" Type="decimal" Nullable="true" Precision="15" Scale="2" />
+    <Property Name="valor5" Type="decimal" Nullable="true" Precision="15" Scale="2" />
+    <Property Name="fecha1" Type="datetime" Nullable="true" />
+    <Property Name="fecha2" Type="datetime" Nullable="true" />
+    <Property Name="fecha3" Type="datetime" Nullable="true" />
+    <Property Name="fecha4" Type="datetime" Nullable="true" />
+    <Property Name="fecha5" Type="datetime" Nullable="true" />
+    <Property Name="reg_activo" Type="varchar" Nullable="false" MaxLength="1" />
+    <Property Name="usuario" Type="varchar" Nullable="false" MaxLength="15" />
+    <Property Name="fecha_creacion" Type="datetime" Nullable="false" />
+    <Property Name="hora_creacion" Type="datetime" Nullable="false" />
+    <Property Name="fecha_modificacion" Type="datetime" Nullable="true" />
+  </EntityType>
+  <EntityType Name="afbceacts">
+    <Key>
+      <PropertyRef Name="cia" />
+      <PropertyRef Name="activo" />
+      <PropertyRef Name="ano" />
+      <PropertyRef Name="periodo" />
+    </Key>
+    <Property Name="cia" Type="int" Nullable="false" />
+    <Property Name="activo" Type="int" Nullable="false" />
+    <Property Name="ano" Type="int" Nullable="false" />
+    <Property Name="periodo" Type="int" Nullable="false" />
+    <Property Name="valor_inicial" Type="decimal" Nullable="false" Precision="15" Scale="2" />
+    <Property Name="adicion_rebaja" Type="decimal" Nullable="true" Precision="15" Scale="2" />
+    <Property Name="deprec_mes" Type="decimal" Nullable="false" Precision="15" Scale="2" />
+    <Property Name="deprec_acum" Type="decimal" Nullable="false" Precision="15" Scale="2" />
+    <Property Name="valor_libros" Type="decimal" Nullable="false" Precision="15" Scale="2" />
+    <Property Name="usuario" Type="varchar" Nullable="false" MaxLength="15" />
+    <Property Name="fecha_creacion" Type="datetime" Nullable="false" />
+    <Property Name="hora_creacion" Type="datetime" Nullable="false" />
+    <Property Name="fecha_modificacion" Type="datetime" Nullable="true" />
+  </EntityType>
+  <EntityType Name="afgrupos">
+    <Key>
+      <PropertyRef Name="cia" />
+      <PropertyRef Name="grupo_activo" />
+    </Key>
+    <Property Name="cia" Type="int" Nullable="false" />
+    <Property Name="grupo_activo" Type="int" Nullable="false" />
+    <Property Name="descrip" Type="varchar" Nullable="false" MaxLength="60" />
+    <Property Name="cuenta" Type="varchar" Nullable="false" MaxLength="15" />
+    <Property Name="usuario" Type="varchar" Nullable="false" MaxLength="15" />
+    <Property Name="fecha_creacion" Type="datetime" Nullable="false" />
+    <Property Name="hora_creacion" Type="datetime" Nullable="false" />
+    <Property Name="fecha_modificacion" Type="datetime" Nullable="true" />
+  </EntityType>
+  <EntityType Name="aftipoacts">
+    <Key>
+      <PropertyRef Name="cia" />
+      <PropertyRef Name="tipo_activo" />
+    </Key>
+    <Property Name="cia" Type="int" Nullable="false" />
+    <Property Name="tipo_activo" Type="int" Nullable="false" />
+    <Property Name="descrip" Type="varchar" Nullable="false" MaxLength="60" />
+    <Property Name="porct_deprec" Type="decimal" Nullable="false" Precision="5" Scale="2" />
+    <Property Name="anos_vida_util" Type="int" Nullable="false" />
+    <Property Name="cta_activo" Type="varchar" Nullable="false" MaxLength="15" />
+    <Property Name="cta_deprec_acum" Type="varchar" Nullable="false" MaxLength="15" />
+    <Property Name="cta_gasto" Type="varchar" Nullable="false" MaxLength="15" />
+    <Property Name="usuario" Type="varchar" Nullable="false" MaxLength="15" />
+    <Property Name="fecha_creacion" Type="datetime" Nullable="false" />
+    <Property Name="hora_creacion" Type="datetime" Nullable="false" />
+    <Property Name="fecha_modificacion" Type="datetime" Nullable="true" />
+  </EntityType>
+  <EntityType Name="afubics">
+    <Key>
+      <PropertyRef Name="cia" />
+      <PropertyRef Name="ubic_activo" />
+    </Key>
+    <Property Name="cia" Type="int" Nullable="false" />
+    <Property Name="ubic_activo" Type="int" Nullable="false" />
+    <Property Name="descrip" Type="varchar" Nullable="false" MaxLength="60" />
+    <Property Name="usuario" Type="varchar" Nullable="false" MaxLength="15" />
+    <Property Name="fecha_creacion" Type="datetime" Nullable="false" />
+    <Property Name="hora_creacion" Type="datetime" Nullable="false" />
+    <Property Name="fecha_modificacion" Type="datetime" Nullable="true" />
+  </EntityType>
+  <EntityType Name="cousuarios">
+    <Key>
+      <PropertyRef Name="usuarioid" />
+    </Key>
+    <Property Name="usuarioid" Type="varchar" Nullable="false" MaxLength="15" />
+    <Property Name="nombre" Type="varchar" Nullable="false" MaxLength="60" />
+    <Property Name="email" Type="varchar" Nullable="false" MaxLength="30" />
+    <Property Name="password" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="idioma" Type="int" Nullable="false" />
+    <Property Name="ultima_cia" Type="int" Nullable="true" />
+    <Property Name="status" Type="varchar" Nullable="false" MaxLength="3" />
+    <Property Name="usuario" Type="varchar" Nullable="false" MaxLength="15" />
+    <Property Name="fecha_creacion" Type="datetime" Nullable="false" />
+    <Property Name="hora_creacion" Type="datetime" Nullable="false" />
+    <Property Name="fecha_modificacion" Type="datetime" Nullable="true" />
+  </EntityType>
+  <Association Name="FK_afactcomp_afactivos">
+    <End Role="afactivos" Type="GOFFICE_DATAModel.Store.afactivos" Multiplicity="1" />
+    <End Role="afactcomp" Type="GOFFICE_DATAModel.Store.afactcomps" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="afactivos">
+        <PropertyRef Name="cia" />
+        <PropertyRef Name="activo" />
+      </Principal>
+      <Dependent Role="afactcomp">
+        <PropertyRef Name="cia" />
+        <PropertyRef Name="activo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_afactivos_afgrupos">
+    <End Role="afgrupos" Type="GOFFICE_DATAModel.Store.afgrupos" Multiplicity="1" />
+    <End Role="afactivos" Type="GOFFICE_DATAModel.Store.afactivos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="afgrupos">
+        <PropertyRef Name="cia" />
+        <PropertyRef Name="grupo_activo" />
+      </Principal>
+      <Dependent Role="afactivos">
+        <PropertyRef Name="cia" />
+        <PropertyRef Name="grupo_activo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_afactivos_aftipoact">
+    <End Role="aftipoact" Type="GOFFICE_DATAModel.Store.aftipoacts" Multiplicity="1" />
+    <End Role="afactivos" Type="GOFFICE_DATAModel.Store.afactivos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="aftipoact">
+        <PropertyRef Name="cia" />
+        <PropertyRef Name="tipo_activo" />
+      </Principal>
+      <Dependent Role="afactivos">
+        <PropertyRef Name="cia" />
+        <PropertyRef Name="tipo_activo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_afactivos_afubic">
+    <End Role="afubic" Type="GOFFICE_DATAModel.Store.afubics" Multiplicity="1" />
+    <End Role="afactivos" Type="GOFFICE_DATAModel.Store.afactivos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="afubic">
+        <PropertyRef Name="cia" />
+        <PropertyRef Name="ubic_activo" />
+      </Principal>
+      <Dependent Role="afactivos">
+        <PropertyRef Name="cia" />
+        <PropertyRef Name="ubic_activo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_afbceact_afactivos">
+    <End Role="afactivos" Type="GOFFICE_DATAModel.Store.afactivos" Multiplicity="1" />
+    <End Role="afbceact" Type="GOFFICE_DATAModel.Store.afbceacts" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="afactivos">
+        <PropertyRef Name="cia" />
+        <PropertyRef Name="activo" />
+      </Principal>
+      <Dependent Role="afbceact">
+        <PropertyRef Name="cia" />
+        <PropertyRef Name="activo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="GOFFICE_DATAModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="afactcomp">
+          <Key>
+            <PropertyRef Name="cia" />
+            <PropertyRef Name="activo" />
+            <PropertyRef Name="secuencia" />
+          </Key>
+          <Property Name="cia" Type="Int32" Nullable="false" />
+          <Property Name="activo" Type="Int32" Nullable="false" />
+          <Property Name="secuencia" Type="Int32" Nullable="false" />
+          <Property Name="descrip" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="serie" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="usuario" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="fecha_creacion" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="hora_creacion" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="fecha_modificacion" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="afactivo" Relationship="Self.FK_afactcomp_afactivos" FromRole="afactcomp" ToRole="afactivos" />
+        </EntityType>
+        <EntityType Name="afactivo">
+          <Key>
+            <PropertyRef Name="cia" />
+            <PropertyRef Name="activo" />
+          </Key>
+          <Property Name="cia" Type="Int32" Nullable="false" />
+          <Property Name="activo" Type="Int32" Nullable="false" />
+          <Property Name="cod_alterno" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="descrip" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="tipo_activo" Type="Int32" Nullable="false" />
+          <Property Name="tipo_activo2" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="grupo_activo" Type="Int32" Nullable="false" />
+          <Property Name="ubic_activo" Type="Int32" Nullable="false" />
+          <Property Name="marca" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="modelo" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="serie" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="cantidad" Type="Int32" Nullable="false" />
+          <Property Name="proveedor" Type="Int32" Nullable="false" />
+          <Property Name="doc_pago" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="fecha_adq" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="valor_adq" Type="Decimal" Precision="15" Scale="2" Nullable="false" />
+          <Property Name="adicion_rebaja" Type="Decimal" Precision="15" Scale="2" Nullable="false" />
+          <Property Name="observaciones" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="texto1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="texto2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="texto3" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="texto4" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="texto5" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="cantidad1" Type="Int32" />
+          <Property Name="cantidad2" Type="Int32" />
+          <Property Name="cantidad3" Type="Int32" />
+          <Property Name="cantidad4" Type="Int32" />
+          <Property Name="cantidad5" Type="Int32" />
+          <Property Name="valor1" Type="Decimal" Precision="15" Scale="2" />
+          <Property Name="valor2" Type="Decimal" Precision="15" Scale="2" />
+          <Property Name="valor3" Type="Decimal" Precision="15" Scale="2" />
+          <Property Name="valor4" Type="Decimal" Precision="15" Scale="2" />
+          <Property Name="valor5" Type="Decimal" Precision="15" Scale="2" />
+          <Property Name="fecha1" Type="DateTime" Precision="3" />
+          <Property Name="fecha2" Type="DateTime" Precision="3" />
+          <Property Name="fecha3" Type="DateTime" Precision="3" />
+          <Property Name="fecha4" Type="DateTime" Precision="3" />
+          <Property Name="fecha5" Type="DateTime" Precision="3" />
+          <Property Name="reg_activo" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="usuario" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="fecha_creacion" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="hora_creacion" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="fecha_modificacion" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="afactcomps" Relationship="Self.FK_afactcomp_afactivos" FromRole="afactivos" ToRole="afactcomp" />
+          <NavigationProperty Name="afgrupos" Relationship="Self.FK_afactivos_afgrupos" FromRole="afactivos" ToRole="afgrupos" />
+          <NavigationProperty Name="aftipoact" Relationship="Self.FK_afactivos_aftipoact" FromRole="afactivos" ToRole="aftipoact" />
+          <NavigationProperty Name="afubic" Relationship="Self.FK_afactivos_afubic" FromRole="afactivos" ToRole="afubic" />
+          <NavigationProperty Name="afbceacts" Relationship="Self.FK_afbceact_afactivos" FromRole="afactivos" ToRole="afbceact" />
+        </EntityType>
+        <EntityType Name="afbceact">
+          <Key>
+            <PropertyRef Name="cia" />
+            <PropertyRef Name="activo" />
+            <PropertyRef Name="ano" />
+            <PropertyRef Name="periodo" />
+          </Key>
+          <Property Name="cia" Type="Int32" Nullable="false" />
+          <Property Name="activo" Type="Int32" Nullable="false" />
+          <Property Name="ano" Type="Int32" Nullable="false" />
+          <Property Name="periodo" Type="Int32" Nullable="false" />
+          <Property Name="valor_inicial" Type="Decimal" Precision="15" Scale="2" Nullable="false" />
+          <Property Name="adicion_rebaja" Type="Decimal" Precision="15" Scale="2" />
+          <Property Name="deprec_mes" Type="Decimal" Precision="15" Scale="2" Nullable="false" />
+          <Property Name="deprec_acum" Type="Decimal" Precision="15" Scale="2" Nullable="false" />
+          <Property Name="valor_libros" Type="Decimal" Precision="15" Scale="2" Nullable="false" />
+          <Property Name="usuario" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="fecha_creacion" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="hora_creacion" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="fecha_modificacion" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="afactivo" Relationship="Self.FK_afbceact_afactivos" FromRole="afbceact" ToRole="afactivos" />
+        </EntityType>
+        <EntityType Name="afgrupos">
+          <Key>
+            <PropertyRef Name="cia" />
+            <PropertyRef Name="grupo_activo" />
+          </Key>
+          <Property Name="cia" Type="Int32" Nullable="false" />
+          <Property Name="grupo_activo" Type="Int32" Nullable="false" />
+          <Property Name="descrip" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="cuenta" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="usuario" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="fecha_creacion" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="hora_creacion" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="fecha_modificacion" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="afactivos" Relationship="Self.FK_afactivos_afgrupos" FromRole="afgrupos" ToRole="afactivos" />
+        </EntityType>
+        <EntityType Name="aftipoact">
+          <Key>
+            <PropertyRef Name="cia" />
+            <PropertyRef Name="tipo_activo" />
+          </Key>
+          <Property Name="cia" Type="Int32" Nullable="false" />
+          <Property Name="tipo_activo" Type="Int32" Nullable="false" />
+          <Property Name="descrip" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="porct_deprec" Type="Decimal" Precision="5" Scale="2" Nullable="false" />
+          <Property Name="anos_vida_util" Type="Int32" Nullable="false" />
+          <Property Name="cta_activo" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="cta_deprec_acum" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="cta_gasto" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="usuario" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="fecha_creacion" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="hora_creacion" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="fecha_modificacion" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="afactivos" Relationship="Self.FK_afactivos_aftipoact" FromRole="aftipoact" ToRole="afactivos" />
+        </EntityType>
+        <EntityType Name="afubic">
+          <Key>
+            <PropertyRef Name="cia" />
+            <PropertyRef Name="ubic_activo" />
+          </Key>
+          <Property Name="cia" Type="Int32" Nullable="false" />
+          <Property Name="ubic_activo" Type="Int32" Nullable="false" />
+          <Property Name="descrip" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="usuario" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="fecha_creacion" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="hora_creacion" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="fecha_modificacion" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="afactivos" Relationship="Self.FK_afactivos_afubic" FromRole="afubic" ToRole="afactivos" />
+        </EntityType>
+        <EntityType Name="cousuario">
+          <Key>
+            <PropertyRef Name="usuarioid" />
+          </Key>
+          <Property Name="usuarioid" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="nombre" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="email" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="idioma" Type="Int32" Nullable="false" />
+          <Property Name="ultima_cia" Type="Int32" />
+          <Property Name="status" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="usuario" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="fecha_creacion" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="hora_creacion" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="fecha_modificacion" Type="DateTime" Precision="3" />
+        </EntityType>
+        <Association Name="FK_afactcomp_afactivos">
+          <End Role="afactivos" Type="Self.afactivo" Multiplicity="1" />
+          <End Role="afactcomp" Type="Self.afactcomp" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="afactivos">
+              <PropertyRef Name="cia" />
+              <PropertyRef Name="activo" />
+            </Principal>
+            <Dependent Role="afactcomp">
+              <PropertyRef Name="cia" />
+              <PropertyRef Name="activo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_afactivos_afgrupos">
+          <End Role="afgrupos" Type="Self.afgrupos" Multiplicity="1" />
+          <End Role="afactivos" Type="Self.afactivo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="afgrupos">
+              <PropertyRef Name="cia" />
+              <PropertyRef Name="grupo_activo" />
+            </Principal>
+            <Dependent Role="afactivos">
+              <PropertyRef Name="cia" />
+              <PropertyRef Name="grupo_activo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_afactivos_aftipoact">
+          <End Role="aftipoact" Type="Self.aftipoact" Multiplicity="1" />
+          <End Role="afactivos" Type="Self.afactivo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="aftipoact">
+              <PropertyRef Name="cia" />
+              <PropertyRef Name="tipo_activo" />
+            </Principal>
+            <Dependent Role="afactivos">
+              <PropertyRef Name="cia" />
+              <PropertyRef Name="tipo_activo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_afactivos_afubic">
+          <End Role="afubic" Type="Self.afubic" Multiplicity="1" />
+          <End Role="afactivos" Type="Self.afactivo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="afubic">
+              <PropertyRef Name="cia" />
+              <PropertyRef Name="ubic_activo" />
+            </Principal>
+            <Dependent Role="afactivos">
+              <PropertyRef Name="cia" />
+              <PropertyRef Name="ubic_activo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_afbceact_afactivos">
+          <End Role="afactivos" Type="Self.afactivo" Multiplicity="1" />
+          <End Role="afbceact" Type="Self.afbceact" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="afactivos">
+              <PropertyRef Name="cia" />
+              <PropertyRef Name="activo" />
+            </Principal>
+            <Dependent Role="afbceact">
+              <PropertyRef Name="cia" />
+              <PropertyRef Name="activo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="GOFFICE_DATAEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="afactcomps" EntityType="Self.afactcomp" />
+          <EntitySet Name="afactivos" EntityType="Self.afactivo" />
+          <EntitySet Name="afbceacts" EntityType="Self.afbceact" />
+          <EntitySet Name="afgrupos" EntityType="Self.afgrupos" />
+          <EntitySet Name="aftipoacts" EntityType="Self.aftipoact" />
+          <EntitySet Name="afubics" EntityType="Self.afubic" />
+          <EntitySet Name="cousuarios" EntityType="Self.cousuario" />
+          <AssociationSet Name="FK_afactcomp_afactivos" Association="Self.FK_afactcomp_afactivos">
+            <End Role="afactivos" EntitySet="afactivos" />
+            <End Role="afactcomp" EntitySet="afactcomps" />
+          </AssociationSet>
+          <AssociationSet Name="FK_afactivos_afgrupos" Association="Self.FK_afactivos_afgrupos">
+            <End Role="afgrupos" EntitySet="afgrupos" />
+            <End Role="afactivos" EntitySet="afactivos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_afactivos_aftipoact" Association="Self.FK_afactivos_aftipoact">
+            <End Role="aftipoact" EntitySet="aftipoacts" />
+            <End Role="afactivos" EntitySet="afactivos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_afactivos_afubic" Association="Self.FK_afactivos_afubic">
+            <End Role="afubic" EntitySet="afubics" />
+            <End Role="afactivos" EntitySet="afactivos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_afbceact_afactivos" Association="Self.FK_afbceact_afactivos">
+            <End Role="afactivos" EntitySet="afactivos" />
+            <End Role="afbceact" EntitySet="afbceacts" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="GOFFICE_DATAModelStoreContainer" CdmEntityContainer="GOFFICE_DATAEntities">
+    <EntitySetMapping Name="afactcomps">
+      <EntityTypeMapping TypeName="IsTypeOf(GOFFICE_DATAModel.afactcomp)">
+        <MappingFragment StoreEntitySet="afactcomps">
+          <ScalarProperty Name="cia" ColumnName="cia" />
+          <ScalarProperty Name="activo" ColumnName="activo" />
+          <ScalarProperty Name="secuencia" ColumnName="secuencia" />
+          <ScalarProperty Name="descrip" ColumnName="descrip" />
+          <ScalarProperty Name="serie" ColumnName="serie" />
+          <ScalarProperty Name="usuario" ColumnName="usuario" />
+          <ScalarProperty Name="fecha_creacion" ColumnName="fecha_creacion" />
+          <ScalarProperty Name="hora_creacion" ColumnName="hora_creacion" />
+          <ScalarProperty Name="fecha_modificacion" ColumnName="fecha_modificacion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="afactivos">
+      <EntityTypeMapping TypeName="IsTypeOf(GOFFICE_DATAModel.afactivo)">
+        <MappingFragment StoreEntitySet="afactivos">
+          <ScalarProperty Name="cia" ColumnName="cia" />
+          <ScalarProperty Name="activo" ColumnName="activo" />
+          <ScalarProperty Name="cod_alterno" ColumnName="cod_alterno" />
+          <ScalarProperty Name="descrip" ColumnName="descrip" />
+          <ScalarProperty Name="tipo_activo" ColumnName="tipo_activo" />
+          <ScalarProperty Name="tipo_activo2" ColumnName="tipo_activo2" />
+          <ScalarProperty Name="grupo_activo" ColumnName="grupo_activo" />
+          <ScalarProperty Name="ubic_activo" ColumnName="ubic_activo" />
+          <ScalarProperty Name="marca" ColumnName="marca" />
+          <ScalarProperty Name="modelo" ColumnName="modelo" />
+          <ScalarProperty Name="serie" ColumnName="serie" />
+          <ScalarProperty Name="cantidad" ColumnName="cantidad" />
+          <ScalarProperty Name="proveedor" ColumnName="proveedor" />
+          <ScalarProperty Name="doc_pago" ColumnName="doc_pago" />
+          <ScalarProperty Name="fecha_adq" ColumnName="fecha_adq" />
+          <ScalarProperty Name="valor_adq" ColumnName="valor_adq" />
+          <ScalarProperty Name="adicion_rebaja" ColumnName="adicion_rebaja" />
+          <ScalarProperty Name="observaciones" ColumnName="observaciones" />
+          <ScalarProperty Name="texto1" ColumnName="texto1" />
+          <ScalarProperty Name="texto2" ColumnName="texto2" />
+          <ScalarProperty Name="texto3" ColumnName="texto3" />
+          <ScalarProperty Name="texto4" ColumnName="texto4" />
+          <ScalarProperty Name="texto5" ColumnName="texto5" />
+          <ScalarProperty Name="cantidad1" ColumnName="cantidad1" />
+          <ScalarProperty Name="cantidad2" ColumnName="cantidad2" />
+          <ScalarProperty Name="cantidad3" ColumnName="cantidad3" />
+          <ScalarProperty Name="cantidad4" ColumnName="cantidad4" />
+          <ScalarProperty Name="cantidad5" ColumnName="cantidad5" />
+          <ScalarProperty Name="valor1" ColumnName="valor1" />
+          <ScalarProperty Name="valor2" ColumnName="valor2" />
+          <ScalarProperty Name="valor3" ColumnName="valor3" />
+          <ScalarProperty Name="valor4" ColumnName="valor4" />
+          <ScalarProperty Name="valor5" ColumnName="valor5" />
+          <ScalarProperty Name="fecha1" ColumnName="fecha1" />
+          <ScalarProperty Name="fecha2" ColumnName="fecha2" />
+          <ScalarProperty Name="fecha3" ColumnName="fecha3" />
+          <ScalarProperty Name="fecha4" ColumnName="fecha4" />
+          <ScalarProperty Name="fecha5" ColumnName="fecha5" />
+          <ScalarProperty Name="reg_activo" ColumnName="reg_activo" />
+          <ScalarProperty Name="usuario" ColumnName="usuario" />
+          <ScalarProperty Name="fecha_creacion" ColumnName="fecha_creacion" />
+          <ScalarProperty Name="hora_creacion" ColumnName="hora_creacion" />
+          <ScalarProperty Name="fecha_modificacion" ColumnName="fecha_modificacion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="afbceacts">
+      <EntityTypeMapping TypeName="IsTypeOf(GOFFICE_DATAModel.afbceact)">
+        <MappingFragment StoreEntitySet="afbceacts">
+          <ScalarProperty Name="cia" ColumnName="cia" />
+          <ScalarProperty Name="activo" ColumnName="activo" />
+          <ScalarProperty Name="ano" ColumnName="ano" />
+          <ScalarProperty Name="periodo" ColumnName="periodo" />
+          <ScalarProperty Name="valor_inicial" ColumnName="valor_inicial" />
+          <ScalarProperty Name="adicion_rebaja" ColumnName="adicion_rebaja" />
+          <ScalarProperty Name="deprec_mes" ColumnName="deprec_mes" />
+          <ScalarProperty Name="deprec_acum" ColumnName="deprec_acum" />
+          <ScalarProperty Name="valor_libros" ColumnName="valor_libros" />
+          <ScalarProperty Name="usuario" ColumnName="usuario" />
+          <ScalarProperty Name="fecha_creacion" ColumnName="fecha_creacion" />
+          <ScalarProperty Name="hora_creacion" ColumnName="hora_creacion" />
+          <ScalarProperty Name="fecha_modificacion" ColumnName="fecha_modificacion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="afgrupos">
+      <EntityTypeMapping TypeName="IsTypeOf(GOFFICE_DATAModel.afgrupos)">
+        <MappingFragment StoreEntitySet="afgrupos">
+          <ScalarProperty Name="cia" ColumnName="cia" />
+          <ScalarProperty Name="grupo_activo" ColumnName="grupo_activo" />
+          <ScalarProperty Name="descrip" ColumnName="descrip" />
+          <ScalarProperty Name="cuenta" ColumnName="cuenta" />
+          <ScalarProperty Name="usuario" ColumnName="usuario" />
+          <ScalarProperty Name="fecha_creacion" ColumnName="fecha_creacion" />
+          <ScalarProperty Name="hora_creacion" ColumnName="hora_creacion" />
+          <ScalarProperty Name="fecha_modificacion" ColumnName="fecha_modificacion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="aftipoacts">
+      <EntityTypeMapping TypeName="IsTypeOf(GOFFICE_DATAModel.aftipoact)">
+        <MappingFragment StoreEntitySet="aftipoacts">
+          <ScalarProperty Name="cia" ColumnName="cia" />
+          <ScalarProperty Name="tipo_activo" ColumnName="tipo_activo" />
+          <ScalarProperty Name="descrip" ColumnName="descrip" />
+          <ScalarProperty Name="porct_deprec" ColumnName="porct_deprec" />
+          <ScalarProperty Name="anos_vida_util" ColumnName="anos_vida_util" />
+          <ScalarProperty Name="cta_activo" ColumnName="cta_activo" />
+          <ScalarProperty Name="cta_deprec_acum" ColumnName="cta_deprec_acum" />
+          <ScalarProperty Name="cta_gasto" ColumnName="cta_gasto" />
+          <ScalarProperty Name="usuario" ColumnName="usuario" />
+          <ScalarProperty Name="fecha_creacion" ColumnName="fecha_creacion" />
+          <ScalarProperty Name="hora_creacion" ColumnName="hora_creacion" />
+          <ScalarProperty Name="fecha_modificacion" ColumnName="fecha_modificacion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="afubics">
+      <EntityTypeMapping TypeName="IsTypeOf(GOFFICE_DATAModel.afubic)">
+        <MappingFragment StoreEntitySet="afubics">
+          <ScalarProperty Name="cia" ColumnName="cia" />
+          <ScalarProperty Name="ubic_activo" ColumnName="ubic_activo" />
+          <ScalarProperty Name="descrip" ColumnName="descrip" />
+          <ScalarProperty Name="usuario" ColumnName="usuario" />
+          <ScalarProperty Name="fecha_creacion" ColumnName="fecha_creacion" />
+          <ScalarProperty Name="hora_creacion" ColumnName="hora_creacion" />
+          <ScalarProperty Name="fecha_modificacion" ColumnName="fecha_modificacion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="cousuarios">
+      <EntityTypeMapping TypeName="IsTypeOf(GOFFICE_DATAModel.cousuario)">
+        <MappingFragment StoreEntitySet="cousuarios">
+          <ScalarProperty Name="usuarioid" ColumnName="usuarioid" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="idioma" ColumnName="idioma" />
+          <ScalarProperty Name="ultima_cia" ColumnName="ultima_cia" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="usuario" ColumnName="usuario" />
+          <ScalarProperty Name="fecha_creacion" ColumnName="fecha_creacion" />
+          <ScalarProperty Name="hora_creacion" ColumnName="hora_creacion" />
+          <ScalarProperty Name="fecha_modificacion" ColumnName="fecha_modificacion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="False" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
