@@ -45,3 +45,5 @@ Inventory Label Printer is a Windows Forms application designed to streamline th
 
 - Zebra Technologies for the printer SDK and Zebra ZD500R printer.
 - Microsoft for the .NET Framework and Entity Framework.
+
+![image info](./assets/printer.png)
