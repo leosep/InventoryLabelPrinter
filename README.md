@@ -24,7 +24,7 @@ Inventory Label Printer is a Windows Forms application designed to streamline th
 
 - .NET Framework 4.7.2 or later
 - Visual Studio 2019 or later
-- SQL Server with the GOFFICE_DATA database
+- SQL Server
 
 ### Usage
 
