@@ -2,6 +2,8 @@
 
 Example of an Inventory Label Printer App made with Windows Forms and designed to streamline the process of printing labels for inventory management. The application allows users to search for inventory items, select the items they need, and print labels using a Zebra ZD500R printer. It features user authentication, filtering, and progress tracking to ensure efficient and accurate label printing.
 
+We used the https://github.com/leosep/InventoryRFIDReader to read the labels.
+
 ## Features
 
 - **User Authentication**: Secure login system to ensure that only authorized personnel can access the application.
