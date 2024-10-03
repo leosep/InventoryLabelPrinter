@@ -1,6 +1,6 @@
 # Inventory Label Printer
 
-Inventory Label Printer is a Windows Forms application designed to streamline the process of printing labels for inventory management. The application allows users to search for inventory items, select the items they need, and print labels using a Zebra ZD500R printer. It features user authentication, filtering, and progress tracking to ensure efficient and accurate label printing.
+Example of an Inventory Label Printer App made with Windows Forms and designed to streamline the process of printing labels for inventory management. The application allows users to search for inventory items, select the items they need, and print labels using a Zebra ZD500R printer. It features user authentication, filtering, and progress tracking to ensure efficient and accurate label printing.
 
 ## Features
 
